@@ -1,25 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="modelo.bean.Producto" %>
+
+
+<%
+	ArrayList<Producto> productos = (ArrayList<Producto>)request.getAttribute("productos");
+%>    
 <!doctype html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-  <title>Nuevo producto</title>
-</head>
-
-<body>
+    <title>Ver Productos</title>
+  </head>
+  <body>
   <div class="container my-3">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Procutos</li>
-        <li class="breadcrumb-item"><a hrejf="formCrearProducto.html">Nuevo</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Productos</li>
+        <li class="breadcrumb-item"><a href="abrirFormCrearProducto">Nuevo</a></li>
       </ol>
     </nav>
     <div class="row">
@@ -31,6 +38,7 @@
               <th scope="col">Stock</th>
               <th scope="col">Tallas</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +48,10 @@
             <tr>
               <td><%=producto.getNombre()%></td>
               <td><%=producto.getStock()%></td>              
-              <td><%=producto.getStock()%></td>
+              <td><%=producto.getTallas()%></td>
+              <td>
+              	<img width="100px" height="100px" class="rounded mx-auto d-block" src="https://loremflickr.com/320/240/<%=producto.getNombre()%>"/>
+              </td>
               <td>
                 <a class="btn btn-danger" href="">
                   <svg class="bi bi-trash" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
@@ -65,7 +76,7 @@
 
               </td>
             </tr>
-
+ <%} %>
             
 
           </tbody>
@@ -95,6 +106,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-</body>
-
+  </body>
 </html>
